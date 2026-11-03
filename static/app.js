@@ -18,10 +18,9 @@ const state = {
   history: JSON.parse(localStorage.getItem('leadgen_history') || '[]'),
 };
 
-// Target FastAPI backend on port 8000 if frontend is opened on a static server (e.g. VS Code Live Server on :5500)
-const API_BASE = (window.location.protocol.startsWith('http') && window.location.port !== '8000')
-  ? 'http://127.0.0.1:8000'
-  : '';
+// The FastAPI service hosts both the dashboard and API. A relative URL keeps
+// local and deployed requests on the same origin instead of calling localhost.
+const API_BASE = '';
 
 // DOM Elements
 const el = {
