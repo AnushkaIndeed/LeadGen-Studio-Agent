@@ -68,14 +68,6 @@ Before deploying, revoke and replace any Groq key that was ever stored in a file
 
 The included `render.yaml` is optional: it creates the same Docker web-service setup and prompts for `GROQ_API_KEY` during setup.
 
-## Resume wording
-
-**LeadGen Studio — B2B Lead Research & Outreach Drafting Agent**  
-Python, FastAPI, Playwright, Trafilatura, Groq, Pydantic
-
-- Built an AI-assisted research workflow that discovers and validates public company websites, extracts structured company information, and drafts evidence-based outreach.
-- Implemented SSRF-aware URL validation, prompt-injection boundaries, bounded crawling, completeness-based retry, and server-side secret handling.
-- Developed a dashboard for direct-URL research, ICP discovery, configurable value propositions, and CSV/JSON export.
 
 ## Limitations
 
