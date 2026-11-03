@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+playwright==1.60.0
+ddgs
+trafilatura
+lxml[html-clean]
+groq
+pydantic
+pytest

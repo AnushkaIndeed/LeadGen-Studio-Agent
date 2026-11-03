@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadGen Studio — Autonomous Outbound Sales Intelligence Agent</title>
+  <meta name="description" content="State-of-the-art AI lead generation and personalized cold outreach pipeline powered by Playwright, Trafilatura, and Llama 3.3 70B.">
+  
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <!-- Background Glow & Grid Orbs -->
+  <div class="bg-mesh">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Navigation Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo-wrapper">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title">LeadGen Studio <span class="badge-version">v2.0</span></div>
+            <div class="brand-subtitle">Autonomous Lead Scraping & AI Outreach Pipeline</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div id="healthStatusBadge" class="status-badge status-loading">
+          <span class="status-dot"></span>
+          <span class="status-text">Connecting...</span>
+        </div>
+
+        <a href="/docs" target="_blank" class="btn btn-secondary btn-sm" title="FastAPI Interactive Docs">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          API Docs
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="tab-overview">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        Overview & Trust
+      </button>
+      <button class="nav-tab" data-tab="tab-discovery">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        Lead Discovery Hub
+      </button>
+      <button class="nav-tab" data-tab="tab-single-url">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        Direct URL Deep-Dive
+      </button>
+      <button class="nav-tab" data-tab="tab-value-props">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        Value Props Studio
+      </button>
+      <button class="nav-tab" data-tab="tab-history">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        History & Saved Leads
+        <span id="historyCountBadge" class="tab-badge">0</span>
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- ==================== TAB 0: OVERVIEW & TRUST ARCHITECTURE ==================== -->
+      <section id="tab-overview" class="tab-pane active">
+        <div class="overview-container">
+          <!-- Hero Card -->
+          <div class="overview-hero-card">
+            <div class="overview-hero-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Evidence-Constrained Sales Research
+            </div>
+            <h1>Autonomous Outbound Lead Intelligence Agent</h1>
+            <p>An autonomous research agent designed to discover B2B prospects, extract structured facts from public websites with Playwright, and draft personalized outreach. A data-completeness threshold determines whether it performs a deeper crawl.</p>
+            <div class="overview-hero-actions">
+              <button class="btn btn-primary" onclick="switchTab('tab-discovery')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Run Discovery Pipeline
+              </button>
+              <button class="btn btn-secondary" onclick="switchTab('tab-single-url')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                Analyze a Company URL
+              </button>
+            </div>
+          </div>
+
+          <!-- The 4 Pillars of Trust -->
+          <div>
+            <div class="overview-section-title">
+              <h2>The 4 Pillars: Why Results Can Be Trusted</h2>
+              <p>Standard LLMs hallucinate false employee numbers, invent fake founders, and generate generic spam. Here is how our architecture ensures factual integrity:</p>
+            </div>
+            <div class="pillars-grid">
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+                <h3>1. Zero Fabrication Policy</h3>
+                <p>The agent never guesses missing information. If a company like Razorpay does not disclose their exact employee count or founder on the crawled pages, the field is recorded as <code>null / missing</code> rather than inventing a fabricated number like "10-50".</p>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                <h3>2. Completeness-Threshold Retry</h3>
+                <p>Every lead is scored for weighted data completeness. If it falls below the selected threshold, the agent performs one deeper crawl.</p>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <h3>3. Ground-Truth Browser DOM</h3>
+                <p>Rather than relying on outdated static web crawls, the agent launches headless Playwright Chromium to execute client-side JavaScript (React, Next.js, Vue) and uses Trafilatura to extract genuine body text directly from the live site.</p>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                </div>
+                <h3>4. Evidence-Based Matching</h3>
+                <p>Value propositions are matched only when direct evidence exists in the crawled content. If none of your product's solved problems are supported by the prospect's published text, no match is forced and outreach drafting is skipped.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6-Stage Autonomous Pipeline Architecture -->
+          <div>
+            <div class="overview-section-title">
+              <h2>How the 6-Stage Autonomous Pipeline Works</h2>
+              <p>A step-by-step state machine that mirrors the rigorous workflow of an elite human sales development representative:</p>
+            </div>
+            <div class="pipeline-breakdown-grid">
+              <div class="stage-step-card">
+                <div class="stage-step-header">
+                  <div class="stage-step-num">1</div>
+                  <div class="stage-step-title">Intent Search & Discovery</div>
+                </div>
+                <p>DuckDuckGo search queries find candidate company websites matching your ICP, automatically filtering out noise and directories (like G2, Crunchbase, Wikipedia, LinkedIn).</p>
+              </div>
+
+              <div class="stage-step-card">
+                <div class="stage-step-header">
+                  <div class="stage-step-num">2</div>
+                  <div class="stage-step-title">Headless Playwright Scraping</div>
+                </div>
+                <p>Launches headless Chromium to render the prospect's domain. Extracts semantic markdown and collects internal navigation links (such as /about, /team, /contact).</p>
+              </div>
+
+              <div class="stage-step-card">
+                <div class="stage-step-header">
+                  <div class="stage-step-num">3</div>
+                  <div class="stage-step-title">Factual Entity Extraction</div>
+                </div>
+                <p>When configured server-side, Groq maps retrieved content into strict Pydantic schemas. Outputs remain subject to review.</p>
+              </div>
+
+              <div class="stage-step-card">
+                <div class="stage-step-header">
+                  <div class="stage-step-num">4</div>
+                  <div class="stage-step-title">Completeness Scoring & Escalation</div>
+                </div>
+                <p>Calculates weighted field completeness. If it is below the threshold, Playwright escalates to Depth 1 and re-evaluates coverage.</p>
+              </div>
+
+              <div class="stage-step-card">
+                <div class="stage-step-header">
+                  <div class="stage-step-num">5</div>
+                  <div class="stage-step-title">Pain Point Alignment</div>
+                </div>
+                <p>Compares the company's stated focus and mission against your product's value propositions. Only genuine, evidenced alignments are retained.</p>
+              </div>
+
+              <div class="stage-step-card">
+                <div class="stage-step-header">
+                  <div class="stage-step-num">6</div>
+                  <div class="stage-step-title">Outreach Drafting & Self-Critique</div>
+                </div>
+                <p>Generates concise cold-email drafts from retrieved details, then performs an automated critique and safety check before returning them.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Integrity & Reliability FAQ -->
+          <div>
+            <div class="overview-section-title">
+              <h2>Integrity & Reliability FAQ</h2>
+              <p>Clear answers on data precision, missing fields, and AI reliability:</p>
+            </div>
+            <div class="faq-grid">
+              <div class="faq-card">
+                <h4>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  Why did a company show missing employee size or funding?
+                </h4>
+                <p>If a company does not disclose headcount or funding stage on the crawled pages, the agent reports it as missing instead of estimating it. The completeness score signals missing coverage; it is not a factual-accuracy guarantee.</p>
+              </div>
+
+              <div class="faq-card">
+                <h4>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  What does the completeness score mean?
+                </h4>
+                <p>The completeness score is a crawl-depth quality gate. It indicates which weighted fields were filled from retrieved content and highlights fields for manual verification.</p>
+              </div>
+
+              <div class="faq-card">
+                <h4>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  How is LLM temperature configured?
+                </h4>
+                <p>Extraction and matching run at a low temperature of 0.3. This minimizes creative drift and prioritizes exact semantic fidelity to the crawled text content.</p>
+              </div>
+
+              <div class="faq-card">
+                <h4>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  Can I configure my own product's value propositions?
+                </h4>
+                <p>Yes! Navigate to the <strong>Value Props Studio</strong> tab to customize the exact customer problems your product solves. The agent will immediately use your updated propositions for all subsequent pipeline runs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 1: LEAD DISCOVERY HUB ==================== -->
+      <section id="tab-discovery" class="tab-pane">
+        <!-- Trust Architecture Callout Banner -->
+        <div class="intro-banner">
+          <div class="intro-banner-content">
+            <div class="intro-banner-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+            <div>
+              <div class="intro-banner-title">Evidence-Constrained Research Workflow</div>
+              <div class="intro-banner-desc">Every lead is parsed directly from live website DOMs. Missing data is flagged with transparency rather than guessing.</div>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="switchTab('tab-overview')">Learn How It Works →</button>
+        </div>
+
+        <!-- Search & Control Panel -->
+        <div class="glass-card discovery-panel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="step-chip">Step 1</span>
+              <h2>Define ICP & Search Intent</h2>
+            </div>
+            <p class="panel-description">DuckDuckGo crawls candidate domains, Playwright scrapes high-signal pages with dynamic depth escalation, and Groq maps leads to your value propositions.</p>
+          </div>
+
+          <!-- Query Input -->
+          <div class="input-group search-bar-wrapper">
+            <div class="search-input-box">
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="queryInput" placeholder="e.g., fintech SaaS startups India, AI dev tools series A, cloud security NYC..." value="fintech SaaS startups India" />
+              <button id="btnClearQuery" class="btn-clear" title="Clear query">&times;</button>
+            </div>
+            <button id="btnLaunchPipeline" class="btn btn-primary btn-glow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span id="btnLaunchText">Run Pipeline</span>
+            </button>
+          </div>
+
+          <!-- Query Presets -->
+          <div class="presets-row">
+            <span class="presets-label">Popular ICPs:</span>
+            <div class="preset-chips">
+              <button class="chip preset-btn" data-query="fintech SaaS startups India">🇮🇳 Fintech SaaS India</button>
+              <button class="chip preset-btn" data-query="AI agent developer tools B2B">🤖 AI DevTools & Agents</button>
+              <button class="chip preset-btn" data-query="healthtech startups Series A US">🏥 US HealthTech Series A</button>
+              <button class="chip preset-btn" data-query="cybersecurity compliance B2B SaaS">🛡️ Cloud Security & Compliance</button>
+              <button class="chip preset-btn" data-query="ecommerce logistics supply chain startups">📦 E-commerce Logistics</button>
+            </div>
+          </div>
+
+          <!-- Advanced Controls Collapsible -->
+          <div class="advanced-controls-section">
+            <button id="btnToggleControls" class="btn-toggle-advanced">
+              <span class="icon-arrow">▸</span>
+              <span>Advanced Pipeline Parameters</span>
+              <span class="controls-summary-pill" id="controlsSummaryPill">3 Leads · 0.60 Min Completeness</span>
+            </button>
+
+            <div id="advancedControlsPanel" class="advanced-controls-grid hidden">
+              <!-- Max Leads Control -->
+              <div class="control-box">
+                <div class="control-label-row">
+                  <label for="maxLeadsInput">Target Leads Count</label>
+                  <span id="maxLeadsVal" class="control-val-badge">3 Leads</span>
+                </div>
+                <input type="range" id="maxLeadsInput" min="1" max="8" value="3" step="1" class="slider">
+                <span class="control-help">Scrapes candidate pool until target count is satisfied.</span>
+              </div>
+
+              <!-- Completeness Threshold Control -->
+              <div class="control-box">
+                <div class="control-label-row">
+                  <label for="completenessThresholdInput">Completeness Threshold</label>
+                  <span id="completenessThresholdVal" class="control-val-badge badge-confidence-good">0.60</span>
+                </div>
+                <input type="range" id="completenessThresholdInput" min="0.3" max="0.9" value="0.6" step="0.05" class="slider">
+                <span class="control-help">Triggers Depth-1 Subpage Retry when initial score is below threshold.</span>
+              </div>
+
+              <!-- Value Prop Selector Preview -->
+              <div class="control-box full-width">
+                <div class="control-label-row">
+                  <label>Active Value Props for Matching</label>
+                  <a href="#" class="link-sm" id="btnGoToValueProps">Manage in Studio →</a>
+                </div>
+                <div id="activePropsSummaryList" class="active-props-pills">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Pipeline Node Progression Graph -->
+        <div id="pipelineTrackerCard" class="glass-card pipeline-tracker-card hidden">
+          <div class="tracker-header">
+            <div class="tracker-title-row">
+              <div class="pulse-indicator"></div>
+              <h3>Autonomous Pipeline Execution</h3>
+            </div>
+            <div id="pipelineElapsedTime" class="elapsed-timer">Elapsed: 0s</div>
+          </div>
+
+          <!-- Interactive Node Steps -->
+          <div class="pipeline-flow-container">
+            <div class="flow-node" id="node-search">
+              <div class="node-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <div class="node-info">
+                <div class="node-title">1. Search & Rank</div>
+                <div class="node-status-text" id="status-text-search">Pending</div>
+              </div>
+            </div>
+
+            <div class="flow-connector" id="conn-1"></div>
+
+            <div class="flow-node" id="node-scrape">
+              <div class="node-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path></svg>
+              </div>
+              <div class="node-info">
+                <div class="node-title">2. Playwright Scrape</div>
+                <div class="node-status-text" id="status-text-scrape">Pending</div>
+              </div>
+            </div>
+
+            <div class="flow-connector" id="conn-2"></div>
+
+            <div class="flow-node" id="node-score">
+              <div class="node-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              </div>
+              <div class="node-info">
+                <div class="node-title">3. Data Completeness</div>
+                <div class="node-status-text" id="status-text-score">Pending</div>
+              </div>
+            </div>
+
+            <div class="flow-connector" id="conn-3"></div>
+
+            <div class="flow-node" id="node-match">
+              <div class="node-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              </div>
+              <div class="node-info">
+                <div class="node-title">4. Pain Point Match</div>
+                <div class="node-status-text" id="status-text-match">Pending</div>
+              </div>
+            </div>
+
+            <div class="flow-connector" id="conn-4"></div>
+
+            <div class="flow-node" id="node-draft">
+              <div class="node-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="node-info">
+                <div class="node-title">5. Cold Email Draft</div>
+                <div class="node-status-text" id="status-text-draft">Pending</div>
+              </div>
+            </div>
+
+            <div class="flow-connector" id="conn-5"></div>
+
+            <div class="flow-node" id="node-critique">
+              <div class="node-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="node-info">
+                <div class="node-title">6. Self-Critique</div>
+                <div class="node-status-text" id="status-text-critique">Pending</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Execution Console Log -->
+          <div class="console-box">
+            <div class="console-header">
+              <span>Pipeline Telemetry & Execution Stream</span>
+              <button id="btnClearLogs" class="btn-clear-logs">Clear Logs</button>
+            </div>
+            <div id="consoleLogs" class="console-output">
+              <div class="log-line log-info">[Agent initialized] Ready to ingest target query and launch headless workers...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Deck Area -->
+        <div id="resultsDeck" class="results-deck-section">
+          <!-- Summary Bar -->
+          <div id="resultsSummaryBar" class="glass-card summary-bar hidden">
+            <div class="summary-stat">
+              <span class="stat-num" id="statLeadsCount">0</span>
+              <span class="stat-label">Leads Processed</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-stat">
+              <span class="stat-num" id="statAvgCompleteness">0%</span>
+              <span class="stat-label">Avg Completeness</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-stat">
+              <span class="stat-num" id="statPainPointsMatched">0</span>
+              <span class="stat-label">Pain Points Matched</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-stat">
+              <span class="stat-num" id="statDraftsReady">0</span>
+              <span class="stat-label">Outreaches Ready</span>
+            </div>
+            <div class="summary-actions">
+              <button id="btnExportCsv" class="btn btn-secondary btn-sm" title="Export CSV">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                CSV
+              </button>
+              <button id="btnExportJson" class="btn btn-secondary btn-sm" title="Export JSON">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                JSON
+              </button>
+            </div>
+          </div>
+
+          <!-- Notes / Warnings Callout (if any) -->
+          <div id="pipelineNotesCallout" class="notes-callout hidden">
+            <div class="notes-header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Pipeline Execution Notes</span>
+            </div>
+            <ul id="pipelineNotesList" class="notes-list"></ul>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="leadsCardsContainer" class="leads-grid">
+            <!-- Initial Empty State -->
+            <div class="empty-state-card glass-card">
+              <div class="empty-icon-wrap">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <h3>Ready to Discover High-Intent Leads</h3>
+              <p>Enter your ideal customer profile (ICP) query above and hit <strong>Run Pipeline</strong>. The agent will execute search, crawl websites with Playwright, map firmographics, measure field completeness, and compose personalized cold emails.</p>
+              <div class="empty-action-hint">
+                <span>Tip: Try clicking one of the popular ICP preset tags above for instant testing!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 2: DIRECT URL DEEP-DIVE ==================== -->
+      <section id="tab-single-url" class="tab-pane">
+        <div class="glass-card single-url-panel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="step-chip">Deep Scraper</span>
+              <h2>Direct Company Website Intelligence</h2>
+            </div>
+            <p class="panel-description">Bypass search and run the complete intelligence engine against a specific company domain to extract firmographics, completeness scores, and tailored outreach.</p>
+          </div>
+
+          <div class="input-group search-bar-wrapper">
+            <div class="search-input-box">
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <input type="url" id="singleUrlInput" placeholder="https://example.com or postman.com..." value="https://stripe.com" />
+            </div>
+            <button id="btnAnalyzeSingleUrl" class="btn btn-primary btn-glow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span id="btnAnalyzeUrlText">Analyze URL</span>
+            </button>
+          </div>
+
+          <div class="presets-row">
+            <span class="presets-label">Sample Targets:</span>
+            <div class="preset-chips">
+              <button class="chip sample-url-btn" data-url="https://postman.com">Postman</button>
+              <button class="chip sample-url-btn" data-url="https://razorpay.com">Razorpay</button>
+              <button class="chip sample-url-btn" data-url="https://vercel.com">Vercel</button>
+              <button class="chip sample-url-btn" data-url="https://stripe.com">Stripe</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="singleUrlResultsContainer" class="single-results-container">
+          <!-- Populated when analyzed -->
+        </div>
+      </section>
+
+      <!-- ==================== TAB 3: VALUE PROPOSITIONS STUDIO ==================== -->
+      <section id="tab-value-props" class="tab-pane">
+        <div class="glass-card value-props-card">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="step-chip">Value Props</span>
+              <h2>Your Product's Value Propositions</h2>
+            </div>
+            <p class="panel-description">The AI compares each candidate company's public focus against this reference list. Only problems explicitly supported by the scraped content are matched.</p>
+          </div>
+
+          <div class="add-prop-wrapper">
+            <input type="text" id="newPropInput" placeholder="Add a new problem your product solves..." />
+            <button id="btnAddProp" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Add Proposition
+            </button>
+          </div>
+
+          <div id="valuePropsList" class="value-props-editor-list">
+            <!-- Dynamic items -->
+          </div>
+
+          <div class="props-footer-actions">
+            <button id="btnSaveProps" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+              Save Value Props
+            </button>
+            <button id="btnResetProps" class="btn btn-ghost">Reset to Defaults</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 4: HISTORY & SAVED LEADS ==================== -->
+      <section id="tab-history" class="tab-pane">
+        <div class="glass-card history-panel">
+          <div class="panel-header">
+            <div class="panel-title-group">
+              <span class="step-chip">Persistence</span>
+              <h2>Saved Leads Archive</h2>
+            </div>
+            <div class="history-actions">
+              <button id="btnClearHistory" class="btn btn-ghost btn-sm text-danger">Clear All History</button>
+            </div>
+          </div>
+
+          <div id="historyListContainer" class="history-grid">
+            <div class="empty-state-card glass-card">
+              <p>No saved leads in local history yet. Run a pipeline to populate your vault.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- JavaScript Bundle -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

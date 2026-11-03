@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: leadgen-studio
+    runtime: docker
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: ""
